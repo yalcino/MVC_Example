@@ -77,3 +77,7 @@ C:\PRIVATE\MVC_Example\MVC_Example\obj\Debug\MVC_Example.csproj.CoreCompileInput
 C:\PRIVATE\MVC_Example\MVC_Example\obj\Debug\MVC_Example.csproj.CopyComplete
 C:\PRIVATE\MVC_Example\MVC_Example\obj\Debug\MVC_Example.dll
 C:\PRIVATE\MVC_Example\MVC_Example\obj\Debug\MVC_Example.pdb
+C:\PRIVATE\MVC_Example\MVC_Example\bin\EntityFramework.dll
+C:\PRIVATE\MVC_Example\MVC_Example\bin\EntityFramework.SqlServer.dll
+C:\PRIVATE\MVC_Example\MVC_Example\bin\EntityFramework.xml
+C:\PRIVATE\MVC_Example\MVC_Example\bin\EntityFramework.SqlServer.xml
