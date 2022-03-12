@@ -30,5 +30,13 @@ namespace MVC_Example.Controllers
             db.SaveChanges();
             return View();
         }
+
+        public ActionResult Sil(int id)
+        {
+            var ms = db.TBLMUSTERILERs.Find(id);
+            db.TBLMUSTERILERs.Remove(ms);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

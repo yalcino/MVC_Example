@@ -1,4 +1,4 @@
-﻿
+﻿@model MVC_Example.Models.Entity.TBLURUNLER
 @{
     ViewBag.Title = "Yeniurun";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -15,7 +15,7 @@
     </div>
     <div>
         <label>Ürün kategori</label>
-        <input type="text" class="form-control" name="URUNKATEGORI" />
+        @Html.DropDownListFor(m => m.TBLKATEGORILER.KATEGORIID, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
     </div>
     <div>
         <label>Fiyat</label>

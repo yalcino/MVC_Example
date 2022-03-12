@@ -636,6 +636,7 @@
     <Content Include="Views\Kategori\YeniKategori.cshtml" />
     <Content Include="Views\Musteriler\Yenimusteri.cshtml" />
     <Content Include="Views\Urunler\Yeniurun.cshtml" />
+    <Content Include="Views\Kategori\KategoriGetir.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

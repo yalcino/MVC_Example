@@ -32,5 +32,19 @@ namespace MVC_Example.Controllers
             db.SaveChanges();
             return View();
         }
+
+        public ActionResult Sil(int id)
+        {
+            var kategori = db.TBLKATEGORILERs.Find(id);
+            db.TBLKATEGORILERs.Remove(kategori);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult KategoriGetir(int id)
+        {
+            var kategori = db.TBLKATEGORILERs.Find(id);
+            return View("KategoriGetir", kategori);
+        }
     }
 }
