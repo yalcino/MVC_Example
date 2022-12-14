@@ -5,6 +5,15 @@
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
+@using (Html.BeginForm("Index", "Musteriler", FormMethod.Get))
+{
+    <p> 
+        Aranacak kelime : @Html.TextBox("p")
+        <input type="submit" value="Ara" />
+    </p>
+
+}
+
 <table class="table table-bordered">
     <tr>
         <th>MÜŞTERİ ID</th>
@@ -21,9 +30,10 @@
             <td>@tbl.MUSTERIAD</td>
             <td>@tbl.MUSTERISOYAD</td>
             <td><a href="/Musteriler/Sil/@tbl.MUSTERID" class="btn btn-danger">SİL</a></td>
-            <td><a href="/Musteriler/Guncelle/@tbl.MUSTERID" class="btn btn-success">GÜNCELLE</a></td>
+            <td><a href="/Musteriler/MusteriGetir/@tbl.MUSTERID" class="btn btn-success">GÜNCELLE</a></td>
+            <td>@Html.ActionLink("sil butonu", "Sil", new { id = tbl.MUSTERID }, new { @class = "btn btn-warning", onclick = "return confirm('emin misin')" })</td>
         </tr>
-        }
+            }
     </tbody>
 </table>
 <a href="/Musteriler/Yenimusteri/" class="btn btn-primary">Yeni müşteri ekle</a>

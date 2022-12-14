@@ -45,5 +45,31 @@ namespace MVC_Example.Controllers
         }
 
 
+        public ActionResult UrunGetir(int id)
+        {
+            var m1 = db.TBLURUNLERs.Find(id);
+
+            List<SelectListItem> degerler = (from i in db.TBLKATEGORILERs.ToList()
+                                             select new SelectListItem { Text = i.KATEGORIAD, Value = i.KATEGORIID.ToString() }
+                               ).ToList();
+            ViewBag.dgr = degerler;            
+
+            return View("UrunGetir", m1);
+        }
+
+        public ActionResult Guncelle(TBLURUNLER p1)
+        {
+            var m = db.TBLURUNLERs.Find(p1.URUNID);
+            m.URUNAD = p1.URUNAD;
+            m.MARKA = p1.MARKA;
+            m.URUNKATEGORI = p1.TBLKATEGORILER.KATEGORIID;
+            m.FIYAT = p1.FIYAT;
+            m.STOK = p1.STOK;
+
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+
     }
 }

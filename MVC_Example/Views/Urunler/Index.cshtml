@@ -5,32 +5,44 @@
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-<table class="table table-bordered">
-    <tr>
-        <th>URUN ID</th>
-        <th>URUN AD</th>
-        <th>URUN KATEGORİ</th>
-        <th>FİYAT</th>
-        <th>MARKA</th>
-        <th>STOK</th>
-        <th>SİL</th>
-        <th>GÜNCELLE</th>
-    </tr>
+<table id="Tbl1" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>URUN ID</th>
+            <th>URUN AD</th>
+            <th>URUN KATEGORİ</th>
+            <th>FİYAT</th>
+            <th>MARKA</th>
+            <th>STOK</th>
+            <th>SİL</th>
+            <th>GÜNCELLE</th>
+        </tr>
+    </thead>
     <tbody>
         @foreach (var tbl in Model)
         {
-        <tr>
-            <td>@tbl.URUNID</td>
-            <td>@tbl.URUNAD</td>
-            <td>@tbl.TBLKATEGORILER.KATEGORIAD</td>
-            <td>@tbl.FIYAT</td>
-            <td>@tbl.MARKA</td>
-            <td>@tbl.STOK</td>
-            <td><a href="/Urunler/Sil/@tbl.URUNID" class="btn btn-danger">SİL</a></td>
-            <td><a href="/Urunler/Guncelle/@tbl.URUNID" class="btn btn-success">GÜNCELLE</a></td>
-        </tr>
+            <tr>
+                <td>@tbl.URUNID</td>
+                <td>@tbl.URUNAD</td>
+                <td>@tbl.TBLKATEGORILER.KATEGORIAD</td>
+                <td>@tbl.FIYAT</td>
+                <td>@tbl.MARKA</td>
+                <td>@tbl.STOK</td>
+                <td><a href="/Urunler/Sil/@tbl.URUNID" class="btn btn-danger">SİL</a></td>
+                <td><a href="/Urunler/UrunGetir/@tbl.URUNID" class="btn btn-success">GÜNCELLE</a></td>
+            </tr>
         }
     </tbody>
 </table>
 <a href="/Urunler/Yeniurun/" class="btn btn-primary">Yeni urun ekle</a>
+
+<script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<link href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+<script>
+    $('#Tbl1').dataTable();
+</script>
+
+
+
 

@@ -1,4 +1,4 @@
-﻿
+﻿@model MVC_Example.Models.Entity.TBLKATEGORILER
 @{
     ViewBag.Title = "YeniKategori";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -8,6 +8,7 @@
     <div>
         <label>kategori Adı</label>
         <input type="text" class="form-control" name="KATEGORIAD"/>
+        @Html.ValidationMessageFor(m => m.KATEGORIAD, "", new { @style="color:red"})
     </div>
     <div style="margin-top:15px">
         <button class="btn btn-info">Kategori ekle</button>

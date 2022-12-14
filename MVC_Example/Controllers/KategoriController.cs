@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MVC_Example.Models.Entity;
+using PagedList;
+using PagedList.Mvc;
 
 
 namespace MVC_Example.Controllers
@@ -13,9 +15,10 @@ namespace MVC_Example.Controllers
         // GET: Kategori
         MvcDbStockEntities db = new MvcDbStockEntities();
 
-        public ActionResult Index()
+        public ActionResult Index(int sayfa=1)
         {
-            var degerler = db.TBLKATEGORILERs.ToList();
+            //var degerler = db.TBLKATEGORILERs.ToList();
+            var degerler = db.TBLKATEGORILERs.ToList().ToPagedList(sayfa, 3);
             return View(degerler);
         }
 
@@ -28,6 +31,7 @@ namespace MVC_Example.Controllers
         [HttpPost]
         public ActionResult YeniKategori(TBLKATEGORILER p1)
         {
+            if (!ModelState.IsValid) return View("YeniKategori");
             db.TBLKATEGORILERs.Add(p1);
             db.SaveChanges();
             return View();
@@ -45,6 +49,14 @@ namespace MVC_Example.Controllers
         {
             var kategori = db.TBLKATEGORILERs.Find(id);
             return View("KategoriGetir", kategori);
+        }
+
+        public ActionResult Guncelle(TBLKATEGORILER p1)
+        {
+            var kategori = db.TBLKATEGORILERs.Find(p1.KATEGORIID);
+            kategori.KATEGORIAD = p1.KATEGORIAD;
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
